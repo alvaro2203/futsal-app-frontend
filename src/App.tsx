@@ -23,6 +23,7 @@ const teamPlayers: Player[] = [
   { id: 6, name: 'Christian', number: 10 },
   { id: 7, name: 'Mini', number: 7 },
   { id: 8, name: 'Borja', number: 6 },
+  { id: 9, name: 'Mario', number: 15 },
 ];
 
 const initialMatch: Match = {
@@ -96,11 +97,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className='min-h-screen bg-gray-100'>
       <Header />
-      <main className="container mx-auto p-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="md:col-span-2">
+      <main className='container mx-auto p-4'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+          <div className='md:col-span-2'>
             <ScoreBoard
               homeScore={match.score.home}
               awayScore={match.score.away}
@@ -113,12 +114,13 @@ function App() {
               elapsedTime={formatElapsedTime(elapsedTime)}
             />
             <PlayerList
-              allPlayers={teamPlayers}
               fieldPlayers={fieldPlayers}
+              setFieldPlayers={setFieldPlayers}
+              allPlayers={teamPlayers}
               onPlayerAction={handlePlayerAction}
             />
           </div>
-          <ActionLog actions={match.actions} players={fieldPlayers} />
+          <ActionLog actions={match.actions} players={teamPlayers} />
         </div>
       </main>
     </div>
