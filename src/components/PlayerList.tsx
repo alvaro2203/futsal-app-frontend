@@ -54,18 +54,17 @@ const PlayerList = ({
       {fieldPlayers.map((player) => (
         <div
           key={player.id}
-          className='bg-white rounded-lg shadow-md p-4 flex flex-col'
+          className='bg-white rounded-lg shadow-md p-4 flex flex-col '
         >
           <div
-            className='grid grid-cols-2'
+            className='grid grid-cols-2 place-items-center'
             onClick={() =>
               setClickedPlayerID(
                 player.id !== clickedPlayerID ? player.id : null
               )
             }
           >
-            <h3 className='text-lg font-semibold'>{player.name}</h3>
-            <p className='text-gray-600'>#{player.number}</p>
+            <p className='font-semibold'>{player.name} - {player.number}</p>
           </div>
 
           {clickedPlayerID === player.id && (
