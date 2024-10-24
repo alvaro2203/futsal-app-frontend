@@ -23,6 +23,7 @@ const ActionLog = ({ actions, players }: ActionLogProps) => {
     <div className="bg-white rounded-lg shadow-md p-4 text-center">
       <h2 className="text-xl font-bold mb-4">Resumen</h2>
       <div className="space-y-2">
+        {actions.length === 0 && <h3>No hay acciones todavía</h3>}
         {actions.map((action) => (
           <div key={action.id} className="flex items-center space-x-2">
             <span className="text-gray-500">
