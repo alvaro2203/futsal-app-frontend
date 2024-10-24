@@ -1,10 +1,11 @@
-import { Play, Pause, RotateCcw } from 'lucide-react';
+import { Play, Pause, RotateCcw, Volleyball  } from 'lucide-react';
 
 interface MatchControlsProps {
   isOngoing: boolean;
   onToggleMatch: () => void;
   onReset: () => void;
   elapsedTime: string;
+  addGoal: (team: "home" | "away") => void
 }
 
 const MatchControls = ({
@@ -12,6 +13,7 @@ const MatchControls = ({
   onToggleMatch,
   onReset,
   elapsedTime,
+  addGoal
 }: MatchControlsProps) => {
   return (
     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4 my-4">
@@ -37,6 +39,16 @@ const MatchControls = ({
           <RotateCcw size={20} />
           <span className="text-sm sm:text-base">Reiniciar Partido</span>
         </button>
+        
+        {isOngoing && (
+          <button
+            onClick={() => addGoal("away")}
+            className="flex items-center space-x-2 py-2 px-4 w-full sm:w-auto justify-center rounded-full bg-yellow-500 hover:bg-yellow-600 text-white transition-colors duration-300"
+          >
+            <Volleyball size={20} />
+            <span className="text-sm sm:text-base">Gol del Rival FC</span>
+          </button>
+        )}
       </div>
 
       <div className="text-lg sm:text-2xl font-bold">{elapsedTime}</div>

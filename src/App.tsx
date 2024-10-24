@@ -52,6 +52,18 @@ function App() {
     };
   }, [match.isOngoing]);
 
+  const addGoal = (team: "home" | "away") => {
+    setMatch((prevMatch) => {
+      return {
+        ...prevMatch,
+        score: {
+          ...prevMatch.score,
+          [team]: prevMatch.score[team] + 1,
+        },
+      };
+    });
+  };
+  
   const handlePlayerAction = (playerId: number, actionType: string) => {
     if (!match.isOngoing) return;
 
@@ -112,6 +124,7 @@ function App() {
               onToggleMatch={toggleMatch}
               onReset={resetMatch}
               elapsedTime={formatElapsedTime(elapsedTime)}
+              addGoal={addGoal}
             />
             <PlayerList
               fieldPlayers={fieldPlayers}
