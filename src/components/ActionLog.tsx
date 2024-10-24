@@ -29,7 +29,7 @@ const ActionLog = ({ actions, players }: ActionLogProps) => {
               {formatTimestamp(action.timestamp)}
             </span>
             <span className="font-semibold">
-              {getPlayerName(action.playerId)}
+              {action.playerId ? getPlayerName(action.playerId) : "Rival"}
             </span>
             <span className="capitalize">
               {action.type.replace(/([A-Z])/g, ' $1').trim()}

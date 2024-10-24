@@ -53,9 +53,16 @@ function App() {
   }, [match.isOngoing]);
 
   const addGoal = (team: "home" | "away") => {
+    const newAction: Action = {
+      id: match.actions.length + 1,
+      type: "gol",
+      timestamp: elapsedTime,
+    };
+
     setMatch((prevMatch) => {
       return {
         ...prevMatch,
+        actions: [...prevMatch.actions, newAction],
         score: {
           ...prevMatch.score,
           [team]: prevMatch.score[team] + 1,
@@ -63,7 +70,7 @@ function App() {
       };
     });
   };
-  
+
   const handlePlayerAction = (playerId: number, actionType: string) => {
     if (!match.isOngoing) return;
 

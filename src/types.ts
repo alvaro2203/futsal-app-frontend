@@ -6,7 +6,7 @@ export interface Player {
 
 export interface Action {
   id: number;
-  playerId: number;
+  playerId?: number;
   type:
     | 'cambio'
     | 'gol'
