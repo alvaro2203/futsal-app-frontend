@@ -1,3 +1,5 @@
 # futsal-app-frontend
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/alvaro2203/futsal-app-frontend)
+npm -install to insall all libraries
+
+npm run dev to execute server
